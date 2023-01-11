@@ -34,6 +34,8 @@ main{
     width: 117px;
     height: 146px;
     display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     margin: 17.5px;
     background-color: #A7E9AF;
@@ -42,14 +44,25 @@ main{
     border: 1px solid #99CEA8;
 
     /*display: flex;
-    align-items: center;
-    justify-content: center;
     position: absolute;
     backface-visibility: hidden;
     transition: all .5s;
     transform-style: preserve-3d;*/
 }
 
+.card img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    position: absolute;
+}
+
+.card img:nth-child(1){
+    opacity: 1;
+}
+.card img:nth-child(2){
+    opacity: 0;
+}
 
 @media (max-width: 614px){
     .title{
