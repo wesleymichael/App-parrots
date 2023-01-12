@@ -3,7 +3,6 @@
 *{
     box-sizing: border-box;
 }
-
 body{
     background-color: #EEF9BF;
 }
@@ -28,17 +27,13 @@ main{
     margin: 45px auto;
 }
 
-
 /**** Transição das cartas ****/
 .card {
     width: 117px;
     height: 146px;
-    /*display: flex;
-    align-items: center;
-    justify-content: center;*/
-    position: relative; /*Importante deixar position: relative para 'prender' o conteúdo interno */
+    position: relative;
     margin: 17.5px;
-    perspective: 800px;
+    perspective: 800px;  /*Melhora a perspectiva do movimento*/
 }
 
 .face{
@@ -52,10 +47,9 @@ main{
     border-radius: 5px;
     box-shadow: 1px 1px 1px rgba(0,0,0,.3);
     border: 1px solid #99CEA8;
-    
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-    transition: all 1s;
+    transform-style: preserve-3d;  /*Adiciona o efeito 3D*/
+    transition: all 1s;            /*Transição da carta virando*/ 
+    backface-visibility: hidden;  /*Esconder a parte de trás do card*/ 
 }
 
 .card img{
@@ -64,29 +58,15 @@ main{
     object-fit: cover;
     position: absolute;
 }
-
-.back {
+.front {
     transform: rotateY(180deg);
 }
-.flip .back{
+.flip .front{
     transform: rotateY(0deg);
 }
-.flip .front{
+.flip .back{
     transform: rotateY(-180deg);
 }
-
-
-/*
-.card img:nth-child(1){
-    transition: all 0.5s ease-out;
-    z-index: 2;
-}
-.card img:nth-child(2){
-    transition: all 0.5s ease-in;
-    opacity: 0;
-    z-index: 1;
-}
-*/
 
 
 @media (max-width: 614px){
