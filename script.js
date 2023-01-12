@@ -55,12 +55,12 @@ function backCards (listShuffled){
     for( let i in listShuffled ){
         let aux = '';
         aux = `
-        <div onclick="turnCard(this)" class="card">
+        <div onclick="turnCard(this)" class="card" data-test="card">
             <div class="back face">
-                <img src="img/back.png" alt="Imagem não carregada">
+                <img src="img/back.png" alt="Imagem não carregada" data-test="face-down-image">
             </div>
             <div class="front face">
-                <img src="img/${listShuffled[i]}.gif" alt="Imagem não carregada">
+                <img src="img/${listShuffled[i]}.gif" alt="Imagem não carregada" data-test="face-up-image">
             </div>
         </div>`;
         table.innerHTML += aux;        
