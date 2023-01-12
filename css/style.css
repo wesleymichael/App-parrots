@@ -5,17 +5,32 @@
 }
 body{
     background-color: #EEF9BF;
+    font-family: 'Roboto', sans-serif;
+    color: #75B79E;
 }
 
 .title{
-    font-family: 'Roboto', sans-serif;
     font-weight: bold;
     font-size: 56px;
     line-height: 66px;
     letter-spacing: -0.004em;
-    color: #75B79E;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 50px;
+}
+
+.clock{
+    width: 120px;
+    font-size: 18px;
+    display: flex;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    z-index: 3;
+    background-color: #eff8c7f8;
+    border: 1px solid #c2cd91;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+    border-radius: 15px;
 }
 
 main{
@@ -67,7 +82,6 @@ main{
 .flip .back{
     transform: rotateY(-180deg);
 }
-
 
 @media (max-width: 614px){
     .title{
