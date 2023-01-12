@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Testando</title>
+
+        <style>
+            body{
+                display: flex;
+                justify-content: center;
+            }
+            #card{
+                display: flex;
+                justify-content: center;
+                perspective: 800px;          /*Melhora a perspectiva do movimento*/
+            }
+            .face{
+                width: 100px;
+                height: 100px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+
+                transform-style: preserve-3d; /*Adiciona o efeito 3D*/
+                backface-visibility: hidden;  /*Esconder a parte de trás do card*/
+                transition: all 1s;           /*Transição da carta virando*/
+            }
+            #front{
+                background-color: blue;
+            }
+            #back{
+                background-color: red;
+                transform: rotateY(180deg);
+            }
+            .flip #back{
+                transform: rotateY(0deg);
+            }
+            .flip #front{
+                transform: rotateY(-180deg);
+            }
+            
+        </style>
+    </head>
+
+    <body>
+        <div class="flip" id="card" onclick="clicar()">
+            <div class="face" id="front">Front</div>
+            <div class="face" id="back">Back</div>
+        </div>
+
+        <script>
+            function clicar(){
+                const card = document.querySelector('#card');
+                console.log(card)
+                card.classList.toggle('flip');
+            }
+        </script>
+    </body>
+</html>
