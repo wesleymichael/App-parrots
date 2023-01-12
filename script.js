@@ -10,7 +10,6 @@ const char = [
     'unicornparrot'
 ];
 
-
 function startGame(){
     do{
         nCards = Number(prompt('Escolha uma quantidade par de cartas no intervalo [4 a 14]: '));
@@ -22,7 +21,6 @@ function startGame(){
     let listShuffled = selectDeck(nCards);
     backCards(listShuffled);
 }
-
 
 /*** Função para selecionar as cartas que serão utilizadas no game ***/
 function selectDeck(nCards){
@@ -51,8 +49,55 @@ function backCards (listShuffled){
     }
 }
 
+
+let firstCard = '';
+let secondCard = '';
+let moves = 0;
+
 function turnCard(card){   
-    card.classList.toggle('flip');
+    //Se a carta já estiver virada, não acontecer nada
+    if ( card.className.includes('flip') ){
+        return;
+    }
+
+    //Condição para clicar apenas em duas cartas
+    if (firstCard === ''){
+        card.classList.add('flip');
+        firstCard = card;
+        moves++;
+    }
+    else if (secondCard === ''){
+        card.classList.add('flip');
+        secondCard = card;
+        moves++;
+
+        //quando a segunda carta for clicada comparar. Se as strings forem iguais permanecer viradas e não permitir o clique
+        if ( firstCard.innerHTML===secondCard.innerHTML ){
+            firstCard = '';
+            secondCard = '';
+
+            //Fez um novo par, verificar se ganhou o jogo
+            endGame();
+
+        } else {
+            setTimeout( () => {
+                firstCard.classList.remove('flip');
+                secondCard.classList.remove('flip');
+                firstCard = '';
+                secondCard = '';
+            }, 1000);
+        }
+    }
+}
+
+function endGame(){
+    const pairs = document.querySelectorAll('.flip');
+    
+    if (pairs.length === nCards){
+        setTimeout( () => {
+            alert(`Parabéns, você ganhou em ${moves} jogadas!`);
+        }, 100);
+    }
 }
 
 function random() { 

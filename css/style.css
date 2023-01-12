@@ -48,7 +48,7 @@ main{
     box-shadow: 1px 1px 1px rgba(0,0,0,.3);
     border: 1px solid #99CEA8;
     transform-style: preserve-3d;  /*Adiciona o efeito 3D*/
-    transition: all 1s;            /*Transição da carta virando*/ 
+    transition: all 0.8s;          /*Transição dos efeitos*/
     backface-visibility: hidden;  /*Esconder a parte de trás do card*/ 
 }
 
