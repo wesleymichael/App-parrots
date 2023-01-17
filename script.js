@@ -4,7 +4,7 @@ let firstCard = '';
 let secondCard = '';
 let moves = 0;
 let time;
-let interval;
+var interval;
 
 const char = [
     'bobrossparrot',
@@ -19,6 +19,7 @@ const char = [
 function startGame(){
     time = document.querySelector('.timer');
     time.innerHTML = '00';
+    moves = 0;
     do{
         nCards = Number(prompt('Escolha uma quantidade par de cartas no intervalo [4 a 14]: '));
         if(nCards%2 !== 0 || nCards < 4 || nCards > 14){
@@ -26,19 +27,14 @@ function startGame(){
         }
     } while(nCards%2 !== 0 || nCards < 4 || nCards > 14);
 
-    console.log(nCards) ////teste
     let listShuffled = selectDeck(nCards);
-
-    console.log(listShuffled) ////teste
     backCards(listShuffled);
 }
 
 function startTimer(){
-    
     interval = setInterval( () => {
         time.innerHTML = Number(time.innerHTML) + 1;
     }, 1000);
-
 }
 
 /*** Função para selecionar as cartas que serão utilizadas no game ***/
@@ -132,16 +128,16 @@ function restartGame(){
     do{
         restart = prompt("Deseja reiniciar o jogo? 'sim' ou 'não'?");
         if(restart === 'sim'){
-            return startGame(); 
+            return startGame();
         }
         else if (restart === 'não'){
             alert('Foi divertido jogar com você, até a próxima!!');
-            return clearInterval(interval);
+            return;
         }
         else{
             alert("Comando errado. Por favor, digite apenas 'sim' ou 'não'");
         }
-    } while(restart !== 'sim' || restart !== 'não');
+    } while(restart !== 'sim' && restart !== 'não');
 }
 
 /*** Função para embaralhar aleatóriamente uma array ****/
